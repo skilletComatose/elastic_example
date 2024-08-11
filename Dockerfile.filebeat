@@ -1,0 +1,7 @@
+FROM elastic/filebeat:8.15.0
+
+USER root
+
+RUN chmod go-w /usr/share/filebeat/filebeat.yml
+
+CMD sh -c "echo 'Iniciando Filebeat...'; filebeat -e -d 'publish'"

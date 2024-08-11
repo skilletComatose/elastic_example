@@ -1,6 +1,7 @@
 # version: '3.8'
 services:
-  kafka:
+
+  kafka-service:
     build:
       context: .
       dockerfile: Dockerfile.kafka
@@ -28,7 +29,23 @@ services:
     container_name: logstash
     volumes:
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash.yml:/usr/share/logstash/config/logstash.yml
     depends_on:
-      - kafka
+      - kafka-service
     ports:
       - "5044:5044"
+
+    environment:
+      ELASTIC_CONTAINER: false
+
+  filebeat:
+    # image: elastic/filebeat:8.15.0
+    build:
+      context: .
+      dockerfile: Dockerfile.filebeat
+    container_name: filebeat
+    depends_on:
+      - kafka-service
+    volumes:
+      - ./TODO1/:/usr/share/filebeat/TODO1/
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml

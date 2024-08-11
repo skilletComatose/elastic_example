@@ -2,7 +2,8 @@ filebeat.inputs:
   - type: log
     enabled: true
     paths:
-      - C:\Users\romar\OneDrive\Desktop\prueba-tecnica\TODO1\*.json
+      # - C:\Users\romar\OneDrive\Desktop\prueba-tecnica\TODO1\*.json
+      - /usr/share/filebeat/TODO1/*.json 
     # json.keys_under_root: true
     # json.add_error_key: true
 
@@ -35,7 +36,8 @@ processors:
         }
 
 output.kafka:
-  hosts: ["localhost:9092"]
+  # hosts: ["localhost:9092"]
+  hosts: ["kafka:9092"]
   topic: "todo1-topic"
   partition.round_robin:
     reachable_only: false

@@ -2,9 +2,10 @@ import json
 import time
 import random
 import os
-
+from faker import Faker
 def generate_json_data(age):
-    return json.dumps({"age": age, "other": random.randint(0,9) })
+    fake = Faker()
+    return json.dumps({"name": fake.name(), "age": age })
 
 
 target:str = "./TODO1/output.json"
