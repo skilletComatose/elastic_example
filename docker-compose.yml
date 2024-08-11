@@ -8,4 +8,4 @@ services:
     ports:
       - 9092:9092
     environment:
-      - KF_SERVER=--bootstrap-server localhost:9092
+      KF_SERVER: --bootstrap-server localhost:9092
