@@ -25,7 +25,8 @@ processors:
               var values = keys.map(function(key) {
                 return json[key];
               });
-              var csv = keys.join(";") + "\n" + values.join(";") + "\n";
+              var csv = keys.join(";") + "\n" + values.join(";");
+              csv = csv.trim()
               event.Put("message", csv);
             } catch (e) {
               event.Put("message", "Error converting JSON to CSV: " + e.message);
