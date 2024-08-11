@@ -1,0 +1,4 @@
+FROM apache/kafka:3.8.0
+
+ENV PATH=opt/kafka/bin/:$PATH 
+ENV KF_SERVER="--bootstrap-server localhost:9092"

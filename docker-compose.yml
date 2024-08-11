@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  kafka-broker-1:
+    build:
+        context: .
+        dockerfile: Dockerfile.kafka
+    container_name: kafka 
+    ports:
+      - 9092:9092
+    environment:
+      - KF_SERVER=--bootstrap-server localhost:9092
