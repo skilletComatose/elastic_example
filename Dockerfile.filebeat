@@ -4,4 +4,5 @@ USER root
 
 RUN chmod go-w /usr/share/filebeat/filebeat.yml
 
-CMD sh -c "echo 'Iniciando Filebeat...'; filebeat -e -d 'publish'"
+CMD sh -c "echo 'INICIANDO Filebeat...'; filebeat -e -strict.perms=false  -d 'publish'"
+# CMD sh -c "echo 'INICIANDO Filebeat...'; filebeat -e   -d 'publish'"

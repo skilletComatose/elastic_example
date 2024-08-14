@@ -38,7 +38,7 @@ processors:
 output.kafka:
   # hosts: ["localhost:9092"]
   hosts: ["kafka:9092"]
-  topic: "todo1-topic"
+  topic: "todo1-ej-topic"
   partition.round_robin:
     reachable_only: false
   required_acks: 1
